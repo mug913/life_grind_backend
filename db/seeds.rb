@@ -5,10 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+GoalRecord.destroy_all
+Goal.destroy_all
 User.destroy_all
 
 
- user = User.create({ username: 'john doe', email: 'john@email.com', id:50})
+
+ user = User.create({ username: 'john doe', email: 'john@email.com', password_digest: 'x', id:50})
  user2 = User.create({username: 'jane doe', email: 'jane@email.com', id:52})
 
  goal1 = Goal.create({ name: 'day', field_number: 2, position: 0, streak:3, level:3, user_id:50, id:53})

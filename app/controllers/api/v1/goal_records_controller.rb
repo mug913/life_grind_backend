@@ -4,8 +4,11 @@ class Api::V1::GoalRecordsController < ApplicationController
      goal = Goal.find_by_id(params[:goal_id])
      records = goal.goal_records.all
      render json: records
-    else
-     records = GoalRecord.all
+    elsif (params[:user_id])
+      user = Goal.find_by_id(params[:goal_id])
+        records = goal.goal_records.all
+        render json: records
+     records = GoalRecords.all
      render json: records
      end
   end
