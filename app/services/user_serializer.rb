@@ -8,7 +8,7 @@ class UserSerializer
     end
 
     def to_serialized_json
-        @user.to_json(:include => [:goals], :except => [:password_digest])
+        @user.to_json(:include => [:goals], :except => [:password])
     end
  
 end
