@@ -15,16 +15,16 @@ class Api::V1::UsersController < ApplicationController
         user = User.create(user_params)
         if user.valid?
             render json: user, status: :accepted
-        else
-            render json: {erros: goal.errors.full_messages}, status:
-            :unprocessible_entity
+     ##  else
+    ##       render json: {errors: goal.errors.full_messages}, status:
+     ##       :unprocessible_entity
         end
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :tz)
+        params.require(:user).permit(:username, :email, :password, :tz)
     end
 
 end
