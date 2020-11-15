@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-11-15 09:47:59
+  field_1_type: MyString
+  field_1_data: MyString
+  field_2_type: MyString
+  field_2_data: MyString
+  field_3_type: MyString
+  field_3_data: MyString
+  belongs_to: 
+
+two:
+  date: 2020-11-15 09:47:59
+  field_1_type: MyString
+  field_1_data: MyString
+  field_2_type: MyString
+  field_2_data: MyString
+  field_3_type: MyString
+  field_3_data: MyString
+  belongs_to: 

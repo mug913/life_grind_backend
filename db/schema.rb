@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_170151) do
+ActiveRecord::Schema.define(version: 2020_11_15_182608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "goal_records", force: :cascade do |t|
+    t.datetime "date"
+    t.string "field_1_type"
+    t.string "field_1_data"
+    t.string "field_2_type"
+    t.string "field_2_data"
+    t.string "field_3_type"
+    t.string "field_3_data"
+    t.bigint "goal_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "field_1_name"
+    t.string "field_2_name"
+    t.string "field_3_name"
+    t.index ["goal_id"], name: "index_goal_records_on_goal_id"
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string "name"
+    t.integer "field_number"
+    t.integer "position"
+    t.integer "streak"
+    t.integer "level"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_goals_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
