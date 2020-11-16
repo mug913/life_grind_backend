@@ -1,4 +1,4 @@
-class Api::V1::LoginController < ApplicationController
+class Api::V1::LoginsController < ApplicationController
     def create 
         if (params[:username])
         user = User.find_by_username(params[:username])
@@ -11,8 +11,8 @@ class Api::V1::LoginController < ApplicationController
      
    private
   
-   def goal_params
-       params.require(:goal).permit(:username, :email, :password)
+   def login_params
+       params.require(:login).permit(:username, :email, :password)
    end
   
   end

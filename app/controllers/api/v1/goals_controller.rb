@@ -18,7 +18,6 @@ class Api::V1::GoalsController < ApplicationController
  def create
      user = User.find_by_id(params[:user_id])
      goal = user.goals.create(goal_params)
-     goal.records.create(record_date:goal.created_at, units: goal.units, level:0, streak: 0)
      if goal.valid?
          render json: goal, status: :accepted
      else
@@ -39,13 +38,14 @@ class Api::V1::GoalsController < ApplicationController
      end
   end
   
-  def delete
+  def destroy
+    Goal.delete(params[:id])
   end
 
  private
 
  def goal_params
-     params.require(:goal).permit(:name, :position, :level, :streak, :field_number)
+     params.require(:goal).permit(:name, :position, :level, :streak, :field_number, :id)
  end
 
 end
