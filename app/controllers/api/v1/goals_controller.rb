@@ -39,7 +39,9 @@ class Api::V1::GoalsController < ApplicationController
   end
   
   def destroy
-    Goal.delete(params[:id])
+    goal = Goal.find_by_id(params[:id])
+    goal.delete
+    render json: goal
   end
 
  private
