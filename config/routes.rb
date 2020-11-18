@@ -10,7 +10,7 @@ namespace :api do
       end
       resource :login, only: [:create] 
     resources :goals, only: [:show, :destroy] 
-    resources :goal_records, only: [:delete, :show]
+    resources :goal_records, only: [:destroy, :show]
     end 
     
   end

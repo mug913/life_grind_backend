@@ -2,12 +2,12 @@ class Api::V1::UsersController < ApplicationController
 
     def index 
         users = User.all
-        render json: UserSerializer.new(users).all_to_serialized_json
+        render json: users, each_serializer: UsersSerializer
     end
 
     def show
         user = User.find_by_id(params[:id])
-            render json: user
+        render json: user, each_serializer: UserSerializer
     end
 
     def create

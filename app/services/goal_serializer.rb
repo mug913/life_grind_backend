@@ -1,4 +1,4 @@
-class GoalsSerializer < ActiveModel::Serializer
+class GoalSerializer < ActiveModel::Serializer
     attributes :id, :name, :position, :streak, :level, :field_number, :user_id, :goal_records
 
  
