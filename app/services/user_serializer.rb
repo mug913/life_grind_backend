@@ -1,14 +1,23 @@
-class UserSerializer
-    def initialize(user)
-        @user = user
-    end
+class UserSerializer < ActiveModel::Serializer
+   attributes :id, :username, :goals
 
-    def all_to_serialized_json
-        @user.to_json(:only => [:id, :username])
-    end
+   def goals
+    ActiveModel::SerializableResource.new(object.goals, each_serializer: GoalsSerializer)
+   end
 
-    def to_serialized_json
-        @user.to_json(:include => [:goals], :except => [:password_digest])
-    end
+   
+   
+   
+    # def initialize(user)
+    #     @user = user
+    # end
+
+    # def all_to_serialized_json
+    #     @user.to_json(:only => [:id, :username])
+    # end
+
+    # def to_serialized_json
+    #     @user.to_json(:include => ['goals' , 'goals.goal_records'], :except => [:password_digest])
+    # end
  
 end
