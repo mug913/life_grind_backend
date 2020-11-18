@@ -20,9 +20,8 @@ class Api::V1::GoalRecordsController < ApplicationController
 
   def create
     goal = Goal.find_by_id(params[:goal_id])
-    record = GoalRecord.create(record_params)
-    record.goal = goal
-    if record.valid?
+    record = goal.goal_records.create(record_params)
+      if record.valid?
         render json: record, status: :accepted
     else
         render json: {errors: record.errors.full_messages}, status:
