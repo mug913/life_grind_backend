@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-    ##has_many :goals, dependent: :destroy
-   ## has_many :days, dependent: :destroy
+   has_many :goals, dependent: :destroy
 
-    validates :username, :email, presence: true
-    validates :username, :email, uniqueness: true
-   # has_secure_password
+   validates :username, :password_digest, :email, presence: true
+   validates :username, :email, uniqueness: true
+   has_secure_password
 end
