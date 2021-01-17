@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-   attributes :id, :username, :goals
+   attributes :id, :name, :goals
 
    def goals
     ActiveModelSerializers::SerializableResource.new(object.goals, each_serializer: GoalsSerializer)

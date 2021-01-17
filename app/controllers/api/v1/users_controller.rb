@@ -1,5 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
+   # before_action :authenticate_user!
+
     def index 
         users = User.all
         render json: users, each_serializer: UsersSerializer
@@ -23,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password_digest, :tz)
+        params.require(:user).permit(:name, :email, :password, :tz)
     end
 
 end
