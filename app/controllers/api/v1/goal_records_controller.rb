@@ -1,4 +1,4 @@
-class Api::V1::GoalRecordsController < ApplicationController
+class Api::V1::GoalRecordsController < Api::V1::BaseController
   def index 
     if (params[:goal_id])
      goal = Goal.find_by_id(params[:goal_id])
