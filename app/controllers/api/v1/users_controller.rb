@@ -1,4 +1,6 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < Api::V1::BaseController
+
+    before_action :authenticate_api_v1_user!
 
     def index 
         users = User.all
@@ -23,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password_digest, :tz)
+        params.require(:user).permit(:name, :email, :password, :tz)
     end
 
 end

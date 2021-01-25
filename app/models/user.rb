@@ -1,7 +1,14 @@
-class User < ApplicationRecord
-   has_many :goals, dependent: :destroy
+# frozen_string_literal: true
 
-   validates :username, :password_digest, :email, presence: true
-   validates :username, :email, uniqueness: true
-   has_secure_password
+class User < ActiveRecord::Base
+  #added to resolve devise-token-auth migration issue 1276  
+  extend Devise::Models
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+  include DeviseTokenAuth::Concerns::User
+
+  has_many :goals, dependent: :destroy
+
 end

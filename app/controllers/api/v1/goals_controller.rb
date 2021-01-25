@@ -1,4 +1,5 @@
-class Api::V1::GoalsController < ApplicationController
+class Api::V1::GoalsController < Api::V1::BaseController
+
   def index 
     if (params[:user_id])
      user = User.find_by_id(params[:user_id])
